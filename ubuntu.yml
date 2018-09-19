@@ -1,0 +1,20 @@
+---
+version: "2"  # version is string, not integer
+
+defaults:
+  debian_codename: xenial
+
+settings:
+  conductor:
+    base: ubuntu:xenial  # cannot use Jinja template here
+    roles_path:
+      - ../roles
+
+services:
+  test-ubuntu:
+    from: ubuntu:xenial  # distribution must match conductor base
+    roles:
+      - test-ubuntu
+    command: [/bin/bash]
+    environment:
+      LANG: C.UTF-8

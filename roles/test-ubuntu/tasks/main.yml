@@ -1,0 +1,7 @@
+---
+- name: Add Rust Next PPA
+  apt_repository:
+    repo: ppa:ubuntu-mozilla-security/rust-next
+    validate_certs: False
+  tags: ppa-rust-next
+  when: ansible_distribution == "Ubuntu"
